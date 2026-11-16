@@ -1,4 +1,4 @@
-package com.payment.app.infrastructure.models;
+package com.payment.app.core.infrastructure.models;
 
 import java.time.Instant;
 

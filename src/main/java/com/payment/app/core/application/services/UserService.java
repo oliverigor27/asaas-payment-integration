@@ -1,13 +1,13 @@
-package com.payment.app.application.services;
+package com.payment.app.core.application.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.payment.app.application.mappers.UserMapper;
-import com.payment.app.infrastructure.models.User;
-import com.payment.app.infrastructure.repositories.UserRepository;
-import com.payment.app.presentation.payloads.requests.UserRequest;
+import com.payment.app.core.application.mappers.UserMapper;
+import com.payment.app.core.infrastructure.models.User;
+import com.payment.app.core.infrastructure.repositories.UserRepository;
+import com.payment.app.core.presentation.payloads.requests.UserRequest;
 
 @Service 
 public class UserService {

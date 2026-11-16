@@ -1,4 +1,4 @@
-package com.payment.app.infrastructure.models;
+package com.payment.app.core.infrastructure.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,6 +1,6 @@
-package com.payment.app.infrastructure.models;
+package com.payment.app.core.infrastructure.models;
 
-import com.payment.app.infrastructure.enums.GenderEnum;
+import com.payment.app.core.infrastructure.enums.GenderEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

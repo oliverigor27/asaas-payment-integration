@@ -1,4 +1,4 @@
-package com.payment.app.presentation.payloads.requests;
+package com.payment.app.core.presentation.payloads.requests;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

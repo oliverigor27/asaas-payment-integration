@@ -1,10 +1,10 @@
-package com.payment.app.infrastructure.repositories;
+package com.payment.app.core.infrastructure.repositories;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.payment.app.infrastructure.models.User;
+import com.payment.app.core.infrastructure.models.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
