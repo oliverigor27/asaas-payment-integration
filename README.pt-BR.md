@@ -267,7 +267,7 @@ users                              customer
 ├── username  (único)              ├── cpf       (único)
 ├── password  (BCrypt)             ├── name
 ├── created_at                     ├── phone_number (único)
-├── updated_at                     ├── gender    (MEN | WOMEN)
+├── updated_at                     ├── gender    (MALE | FEMALE)
 └── is_active                      ├── created_at / updated_at / is_active
 ```
 
