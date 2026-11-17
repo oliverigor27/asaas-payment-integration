@@ -37,6 +37,6 @@ public class LoginService {
             throw new InvalidCredentialsException();
         }
         loginAttemptService.registrarSucesso(email);
-        return jwtUtil.generateToken(user.get().getEmail());
+        return jwtUtil.generateToken(user.get().getId());
     }
 }

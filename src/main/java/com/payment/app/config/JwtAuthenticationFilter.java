@@ -33,18 +33,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
             return;
         }
         String token = authHeader.substring(7);
-        String userEmail;
+        Long userId;
         try {
-            userEmail = jwtUtil.getEmail(token);
-        } catch (JwtException | IllegalArgumentException e) {
+            userId = jwtUtil.getUserId(token);
+        } catch (JwtException | IllegalArgumentException e) {   // inclui o "sub" que não é número
             filterChain.doFilter(request, response);
             return;
         }
-        if(userEmail != null && !userEmail.isEmpty()) {
-            UsernamePasswordAuthenticationToken auth =
-                new UsernamePasswordAuthenticationToken(userEmail, null, List.of());
-            SecurityContextHolder.getContext().setAuthentication(auth);
-        }
+        // o principal passa a ser o id do usuário (Long): nos controllers, @AuthenticationPrincipal Long userId
+        UsernamePasswordAuthenticationToken auth =
+            new UsernamePasswordAuthenticationToken(userId, null, List.of());
+        SecurityContextHolder.getContext().setAuthentication(auth);
         filterChain.doFilter(request, response);
     }
 }

@@ -27,25 +27,26 @@ public class JwtUtil {
         return EXPIRATION_TIME / 1000;
     }
 
-    public String generateToken(String email) {
+    public String generateToken(Long userId) {
         return Jwts.builder()
-                .subject(email)
+                .subject(String.valueOf(userId))   // o "sub" do JWT é sempre texto
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(getSecretKey())
                 .compact();
     }
 
-    public boolean validateToken(String token, String email) {
+    public boolean validateToken(String token, Long userId) {
         try {
-            return getEmail(token).equals(email);
+            return getUserId(token).equals(userId);
         } catch (JwtException | IllegalArgumentException e) {
             return false;
         }
     }
 
-    public String getEmail(String token) {
-        return getClaims(token).getSubject();
+    // Long.valueOf lança NumberFormatException (filha de IllegalArgumentException) se o "sub" não for um número
+    public Long getUserId(String token) {
+        return Long.valueOf(getClaims(token).getSubject());
     }
 
     public boolean isExpired(String token) {
